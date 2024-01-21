@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=0.2">
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Depth Anything">
+  <meta name="keywords" content="Monocular Depth Estimation">
+  <title>Depth Anything</title>
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/Logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- <h1 class="title is-1 publication-title"><img id="painting_icon" width="5%" src="./static/images/logo.png" style="vertical-align: middle; margin-right: 0px; position: relative; top: -8px;"> Depth Anything</h1> -->
+          <h1 class="title is-1 publication-title"><img id="painting_icon" width="5%" src="./static/images/logo.png" style="vertical-align: middle; margin-right: 0px; position: relative; top: -8px;"> Depth Anything</h1>
+          <h1 class="title is-2 publication-title">Unleashing the Power of Large-Scale Unlabeled Data</h1>
+          <div class="is-size-5 publication-authors">
+            <br>
+            <span class="author-block">
+              <a href="https://liheyoung.github.io/">Lihe Yang</a><sup>1</sup></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp  
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=NmHgX-wAAAAJ">Bingyi Kang</a><sup>2+</sup></a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="http://speedinghzl.github.io/">Zilong Huang</a><sup>2</sup></a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://xiaogang00.github.io/">Xiaogang Xu</a><sup>3,4</sup></a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/site/jshfeng/">Jiashi Feng</a><sup>2</sup></a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://hszhao.github.io/">Hengshuang Zhao</a><sup>1+</sup>  
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Hong Kong</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp  </span>
+            <span class="author-block"><sup>2</sup>TikTok</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp  </span>
+            <span class="author-block"><sup>3</sup>Zhejiang Lab</span>&nbsp</a>&nbsp</a>&nbsp  </span>
+            <span class="author-block"><sup>4</sup>Zhejiang University</span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>+</sup>corresponding authors</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/LiheYoung/Depth-Anything/assets/paper.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/LiheYoung/Depth-Anything" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/LiheYoung/Depth-Anything" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-share-square"></i>
+                  </span>
+                  <span>Model</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" width="100%" src="./static/images/teaser.png"/>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h4 class="subtitle has-text-centered">
+        <div class="content has-text-justified"> 
+          <p>
+            Depth Anything is trained on 1.5M labeled images and <b>62M+ unlabeled images</b> jointly, providing the most capable Monocular Depth Estimation (MDE) foundation models with the following features:
+            <ul type="1">
+              <li>zero-shot <b>relative</b> depth estimation, better than MiDaS v3.1 (BEiT<sub>L-512</sub>)</span></li>
+              <li>zero-shot <b>metric</b> depth estimation, better than ZoeDepth</span></li>
+              <li>optimal in-domain fine-tuning and evaluation on NYUv2 and KITTI</span></li>
+            </ul>
+            We also upgrade <b>a better depth-conditioned ControlNet</b> based on our Depth Anything.
+          </p>
+          <p>
+            
+          </p>
+        </div>
+      </h4>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small" style="margin-top: 30px; padding-top: 0px;">
+  <h2 class="title is-4" style="text-align: center;">Comparison between Depth Anything and MiDaS v3.1</h2>
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo7.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo15.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo8.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/sa1b_demo1.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo16.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo9.png" alt="Steve GIF" width="100%">
+        </div>
+        
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo4.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo10.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo11.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo12.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo13.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo14.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/sa1b_demo2.png" alt="Steve GIF" width="100%">
+        </div>
+        
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/sa1b_demo3.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <!-- <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo6.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/demo5.png" alt="Steve GIF" width="100%">
+        </div> -->
+
+        <!-- <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/cityscapes_demo1.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/cityscapes_demo2.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/compare_depth_image/cityscapes_demo3.png" alt="Steve GIF" width="100%">
+        </div> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small" style="margin-top: 50px; padding-top: 0px;">
+  <h2 class="title is-4" style="text-align: center;">Better Depth Model Brings Better ControlNet</h2>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <p>
+        We <b>re-train</b> a depth-conditioned ControlNet based on our Depth Anything, better than the previous one based on MiDaS.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./static/images/controlnet/demo3.png" alt="Steve GIF" width="100%">
+        </div>
+
+        <div class="item item-steve">
+          <img src="./static/images/controlnet/demo2.png" alt="Steve GIF" width="100%">
+        </div> 
+        
+        <!-- <div class="item item-steve">
+          <img src="./static/images/controlnet/demo1.png" alt="Steve GIF" width="100%">
+        </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section"  style="margin-top: 0; padding-top: 50px;">
+  <h2 class="title is-4" style="text-align: center;">Depth Visualization on Videos</h2>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <p>
+        <b>Note:</b> Depth Anything is an image-based depth estimation method, we use video demos just to better exhibit our superiority. For more image-level visualizations, please refer to our paper.
+        </p><br>
+
+        <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./videos/demo1.mov"
+                  type="video/mp4">
+        </video>
+        <!-- <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./videos/demo2.mov"
+                  type="video/mp4">
+        </video> -->
+        <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./videos/demo9.mov"
+                  type="video/mp4">
+        </video>
+        <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./videos/demo7.mov"
+                  type="video/mp4">
+        </video>
+        <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./videos/demo3.mov"
+                  type="video/mp4">
+        </video>
+        <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./videos/demo8.mov"
+                  type="video/mp4">
+        </video>
+        <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+          <source src="./videos/demo4.mov"
+                  type="video/mp4">
+        </video>      
+      </div>
+    </div>
+  </div>
+  <div class="video-grid">
+    <video poster="" id="ade" autoplay controls muted loop playsinline>
+        <source src="./videos/demo5.mov" type="video/mp4">
+    </video>
+    <video poster="" id="ade" autoplay controls muted loop playsinline>
+      <source src="./videos/demo6.mov" type="video/mp4">
+  </video>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-small" style="margin-top: 30px; padding-top: 0px;">
+  <h2 class="title is-3" style="text-align: center;">Better ControlNet Brings Better Video Editing</h2>
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+            <source src="./videos/demo1.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-steve">
+          <video poster="" id="ade" autoplay controls muted loop playsinline height="10%">
+            <source src="./videos/demo1.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <section class="section" style="background-color:#efeff081"> -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work presents Depth Anything, a highly practical solution for robust monocular depth estimation. Without pursuing novel technical modules, we aim to build a simple yet powerful foundation model dealing with any images under any circumstances. To this end, we scale up the dataset by designing a data engine to collect and automatically annotate large-scale unlabeled data (~62M), which significantly enlarges the data coverage and thus is able to reduce the generalization error. We investigate two simple yet effective strategies that make data scaling-up promising. First, a more challenging optimization target is created by leveraging data augmentation tools. It compels the model to actively seek extra visual knowledge and acquire robust representations. Second, an auxiliary supervision is developed to enforce the model to inherit rich semantic priors from pre-trained encoders. We evaluate its zero-shot capabilities extensively, including six public datasets and randomly captured photos. It demonstrates impressive generalization ability. Further, through fine-tuning it with metric depth information from NYUv2 and KITTI, new SOTAs are set. Our better depth model also results in a much better depth-conditioned ControlNet. All models have been released.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Data Coverage</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our Depth Anything is trained on a combination set of 6 labeled datasets (1.5M images) and <b>8 unlabeled datasets (62M+ images)</b>.
+            </p>
+          </div>
+
+          <div class="image-area">
+            <img src="./static/images/dataset.png" alt="pipeline" width="55%" class="center">
+          </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Zero-shot Relative Depth Estimation</h2>
+          <div class="content has-text-justified">
+            <p>
+              Depth Anything is better than the previously best <b>relative</b> MDE model MiDaS v3.1.
+            </p>
+          </div>
+                    
+          <div class="image-area">
+            <figure>
+              <img src="./static/images/compare_relative_MDE.png" alt="pipeline" width="100%">
+              <figcaption>* MiDaS is also trained on KITTI and NYUv2, while our Depth Anything is not.</figcaption>
+            </figure>
+          </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Zero-shot Metric Depth Estimation</h2>
+          <div class="content has-text-justified">
+            <p>
+              Depth Anything is better than the previously best <b>metric</b> MDE model ZoeDepth.
+            </p>
+          </div>
+
+          <div class="image-area">
+            <img src="./static/images/compare_zeroshot_metric_MDE.png" alt="pipeline" width="100%">
+          </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">In-domain Metric Depth Estimation</h2>
+          <div class="video-grid">
+          <figure>
+            <img src="./static/images/compare_indomain_nyu.png" alt="pipeline" width="100%">
+            <figcaption>
+              <!-- <div class="columns is-centered">NYUv2</div></figcaption> -->
+              In-domain metric depth estimation on NYUv2.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/compare_indomain_kitti.png" alt="pipeline" width="100%">
+            <figcaption>
+              In-domain metric depth estimation on KITTI.
+            </figcaption>
+          </figure>
+          </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Transferring Our Encoder to Semantic Segmentation</h2>
+          <div class="video-grid">
+          <figure>
+            <img src="./static/images/compare_semseg_citys.png" alt="pipeline" width="100%">
+            <figcaption>
+              Transferring our Depth Anything pre-trained encoder to Cityscapes semantic segmentation.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/compare_semseg_ade20k.png" alt="pipeline" width="92%">
+            <figcaption>
+              Transferring our Depth Anything pre-trained encoder to ADE20K semantic segmentation.
+            </figcaption>
+          </figure>
+          </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Framework</h2>
+        <div class="content has-text-justified">
+          <p>
+            The framework of Depth Anything is shown below. We adopt a standard pipeline to unleashing the power of large-scale unlabeled images. 
+          </p>
+        </div>
+
+        <div class="image-area">
+          <img src="./static/images/pipeline.png" alt="pipeline" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section pt-0" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-4">Citation</h2>
+    <pre class="selectable"><code>@article{depthanything,
+  title={Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data},
+  author={Yang, Lihe and Kang, Bingyi and Huang, Zilong and Xu, Xiaogang and Feng, Jiashi and Zhao, Hengshuang},
+  journal={arXiv:},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/LiheYoung/Depth-Anything" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="content">
+        <p>
+          The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
