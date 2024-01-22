@@ -242,6 +242,15 @@ body {
   /* height: 10% */
 }
 
+.video-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates two columns */
+  grid-gap: 10px; /* Adjusts the gap between videos */
+  margin: auto; /* Centers the grid */
+  max-width: 960px; /* Adjusts the maximum width of the grid */
+  /* height: 10% */
+}
+
 .video-grid video {
   width: 100%; /* Video takes full width of the grid column */
   height: 280px; /* Set a fixed height */
