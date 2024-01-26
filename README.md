@@ -7,7 +7,7 @@ If you find Depth Anything useful for your work please cite:
 @article{depthanything,
       title={Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data}, 
       author={Yang, Lihe and Kang, Bingyi and Huang, Zilong and Xu, Xiaogang and Feng, Jiashi and Zhao, Hengshuang},
-      journal={arXiv:},
+      journal={arXiv:2401.10891},
       year={2024}
 }
 ```
